@@ -7,20 +7,15 @@
     return raw;
   }
 
-  window.XRequest = class {
-    constructor(basePath = '', commonHeaders = {}) {
-      Object.defineProperty(this, 'basePath', { value: basePath });
-      Object.defineProperty(this, 'commonHeaders', { value: commonHeaders });
-
+  window.XRequest = new class extends Function {
+    constructor() {
+      super();
       return this.request.call(this);
     }
-
     extendOptions(options) {
       if (!options.headers) options.headers = {};
-      if (this.commonHeaders) Object.assign(options.headers, this.commonHeaders);
       return options;
     }
-
     request() {
       return (path, options = {}) => {
         if (options.query) {
@@ -29,7 +24,7 @@
           }).join('&');
         }
         const resolver = () => fetch(path, this.extendOptions(options)).then(response => {
-          let type = response.headers.get('content-type');
+          const type = response.headers.get('content-type');
           let key;
           switch(true) {
             case /\bjson\b/.test(type):

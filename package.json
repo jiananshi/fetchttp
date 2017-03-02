@@ -1,6 +1,6 @@
 {
-  "name": "req",
-  "version": "0.0.1",
+  "name": "xrequest",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WXiaoming/req.git"
+    "url": "git+https://github.com/jiananshi/XRequest.git"
   },
-  "author": "WXiaoming",
+  "author": "jiananshi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/WXiaoming/req/issues"
+    "url": "https://github.com/jiananshi/XRequest/issues"
   },
-  "homepage": "https://github.com/WXiaoming/req#readme",
+  "homepage": "https://github.com/jiananshi/req#readme",
   "dependencies": {
   },
   "devDependencies": {
