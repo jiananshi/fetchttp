@@ -1,10 +1,10 @@
 'use strict';
 {
-  function extendResponse(raw) {
-    if (typeof Symbol !== void 0 && raw && typeof raw === 'object') {
-      raw[Symbol.for('response')] = response;
+  function extendResponse(res) {
+    if (typeof Symbol !== void 0 && res && typeof res === 'object') {
+      res[Symbol.for('response')] = res;
     }
-    return raw;
+    return res;
   }
 
   window.XRequest = new class extends Function {
