@@ -1,8 +1,8 @@
 {
   "name": "xrequest",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
-  "main": "index.js",
+  "main": "lib/xrequest.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/jiananshi/XRequest/issues"
   },
-  "homepage": "https://github.com/jiananshi/req#readme",
+  "homepage": "https://github.com/jiananshi/XRequest#readme",
   "dependencies": {
   },
   "devDependencies": {
