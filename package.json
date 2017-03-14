@@ -1,6 +1,6 @@
 {
   "name": "xrequest",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "",
   "main": "lib/xrequest.js",
   "scripts": {
@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/jiananshi/XRequest#readme",
   "dependencies": {
+    "pre-commit-eslint": "^0.0.6"
   },
   "devDependencies": {
+    "mocha": "^3.2.0"
   }
 }
