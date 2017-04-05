@@ -69,7 +69,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             default:
               key = 'blob';
           }
-
           return response[key]().then(function (res) {
             if ((typeof Symbol === 'undefined' ? 'undefined' : _typeof(Symbol)) !== void 0 && (typeof res === 'undefined' ? 'undefined' : _typeof(res)) === 'object') res[Symbol.for('response')] = response;
             if (/^[1-3]/.test(response.status)) {
@@ -80,6 +79,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
           });
         });
       };
+      return this;
     }
 
     _createClass(Req, [{
@@ -140,7 +140,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
       key: 'create',
       value: function create() {
         var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-        return new this(options);
+        return new Main(options);
       }
     }, {
       key: 'request',
