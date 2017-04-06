@@ -4,25 +4,25 @@
   "description": "",
   "main": "lib/req.js",
   "scripts": {
+    "dev": "babel lib/req.js -o ./dist/req.js -w",
+    "build": "babel lib/req.js -o ./dist/req.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jiananshi/XRequest.git"
+    "url": "git+https://github.com/jiananshi/req.git"
   },
   "author": "jiananshi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jiananshi/XRequest/issues"
+    "url": "https://github.com/jiananshi/req/issues"
   },
-  "homepage": "https://github.com/jiananshi/XRequest#readme",
-  "dependencies": {
-    "pre-commit-eslint": "^0.0.6"
-  },
+  "homepage": "https://github.com/jiananshi/req#readme",
   "devDependencies": {
     "babel-node": "^6.5.3",
     "babel-preset-es2015": "^6.24.0",
-    "mocha": "^3.2.0",
-    "should": "^11.2.1"
+    "eslint": "^3.19.0",
+    "eslint-config-elemefe": "^0.2.2",
+    "pre-commit-eslint": "^0.0.6"
   }
 }

@@ -47,8 +47,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     function Req(url, options) {
       _classCallCheck(this, Req);
 
-      this.headers = options.headers || {};
-      this.body = options.body || {};
+      this.options = options || {};
+      this.options.headers = this.options.headers || {};
       this.resolver = function () {
         if (options.query) {
           url += '?' + Object.keys(options.query).map(function (key) {
@@ -86,7 +86,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
       key: 'send',
       value: function send(data) {
         if (data == null) throw new RequiredParamseError('can not send undefined/null data'); // eslint-disable-line eqeqeq
-        this.body = data;
+        this.options.body = data;
         return this;
       }
     }, {
@@ -94,7 +94,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
       value: function set(key, value) {
         if (typeof key !== 'string') throw new InvalidParams('header expected to be string but get ' + (typeof key === 'undefined' ? 'undefined' : _typeof(key)));
         if (typeof value !== 'string') throw new InvalidParams('header value expected to be string but get ' + (typeof value === 'undefined' ? 'undefined' : _typeof(value)));
-        this.headers[key] = value;
+        this.options.headers[key] = value;
         return this;
       }
     }, {
@@ -112,11 +112,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
       var _this3 = this;
 
       var baseUrl = _ref.baseUrl,
-          headers = _ref.headers;
+          options = _ref.options;
 
       _classCallCheck(this, Main);
 
-      this.defaults = { baseUrl: baseUrl, headers: headers };
+      this.defaults = { baseUrl: baseUrl, options: options };
       ['get', 'delete'].forEach(function (method) {
         _this3[method] = function () {
           for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
@@ -145,13 +145,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     }, {
       key: 'request',
       value: function request(method, url) {
-        var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+        var _options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
         var _defaults = this.defaults,
             baseUrl = _defaults.baseUrl,
-            headers = _defaults.headers;
+            options = _defaults.options;
 
         if (baseUrl) url = baseUrl + url;
-        if (headers) options.headers = headers;
+        if (_options) options = Object.assign({}, options, _options);
         if (typeof method !== 'string') throw new InvalidParams('method expected to be string but get ' + (typeof method === 'undefined' ? 'undefined' : _typeof(method)));
         method = method.toUpperCase().trim();
         if (!HTTP_METHODS.has(method)) throw new InvalidParams('method: ' + method + ' is not supported');

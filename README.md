@@ -1,12 +1,12 @@
 `req` is a small http request/response helper based on fetch
 
-1. Installation
+**1. Installation**
 
 Add `req.js` to your page
 
 `<script src="req.js"></script>`
 
-2. API
+**2. API**
 
 a minimal http get request would be like this:
 
@@ -29,7 +29,12 @@ Alternatively you can pass data as second argument:
 req.post('https://yourdomain.com', { str: 'ymy' });
 ```
 
-3. Configuration
+Last arguments would always be fetch configuration which passes directly to native `fetch`:
 
-{{placeholder}}
+```js
+req.patch('https://yourdomain.com/user/813', { str: 'ymy' }, {
+  mode: 'cors',
+  credentials: 'include'
+});
+````
 
