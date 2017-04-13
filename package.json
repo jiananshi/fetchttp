@@ -1,13 +1,9 @@
 {
   "name": "req",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "",
   "main": "lib/req.js",
-  "scripts": {
-    "dev": "babel lib/req.js -o ./dist/req.js -w",
-    "build": "babel lib/req.js -o ./dist/req.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jiananshi/req.git"
@@ -19,8 +15,6 @@
   },
   "homepage": "https://github.com/jiananshi/req#readme",
   "devDependencies": {
-    "babel-node": "^6.5.3",
-    "babel-preset-es2015": "^6.24.0",
     "eslint": "^3.19.0",
     "eslint-config-elemefe": "^0.2.2",
     "pre-commit-eslint": "^0.0.6"

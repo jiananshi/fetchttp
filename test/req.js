@@ -1,1 +1,1 @@
-../dist/req.js
+../lib/req.js
