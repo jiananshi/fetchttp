@@ -12,6 +12,7 @@ a minimal http get request would be like this:
 
 ```js
 req.get('https://yourdomain.com')
+  .end()
   .then(raw => /* now raw is response from `yourdomain.com` */);
 ```
 
@@ -26,7 +27,7 @@ req.get('https://yourdomain.com')
 Alternatively you can pass data as second argument:
 
 ```js
-req.post('https://yourdomain.com', { str: 'ymy' });
+req.post('https://yourdomain.com', { str: 'ymy' }).end();
 ```
 
 Last arguments would always be fetch configuration which passes directly to native `fetch`:
@@ -35,6 +36,6 @@ Last arguments would always be fetch configuration which passes directly to nati
 req.patch('https://yourdomain.com/user/813', { str: 'ymy' }, {
   mode: 'cors',
   credentials: 'include'
-});
+}).end();
 ````
 

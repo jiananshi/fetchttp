@@ -3,9 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <title>req</title>
+  <link rel="stylesheet" href="//github.elemecdn.com/mochajs/mocha/master/mocha.css">
   <script src="/req.js"></script>
+  <script src="//github.elemecdn.com/YanagiEiichi/fceptor/0.2.9/fceptor.js"></script>
+  <script src="//github.elemecdn.com/tj/should.js/master/should.min.js"></script>
+  <script src="//github.elemecdn.com/mochajs/mocha/master/mocha.js"></script>
 </head>
 <body>
   <div id="mocha"></div>
+  <script>
+    mocha.setup('bdd');
+    describe('req http basic methods test', () => {
+      ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'].forEach(method => {
+        it(`should send ${method.toLowerCase()} request`, done => {
+          FCeptor[method.toLowerCase()](/api\/req\/method$/, ({ request }) => {
+            request.method.should.equal(method);
+            done();
+            return false;
+          });
+          req[method.toLowerCase()]('/api/req/method').end();
+        })
+      });
+
+
+    });
+
+    describe('req functionalities test', () => {
+      it('should send get method with proper queryString', done => {
+        FCeptor.get(/api\/req\/get\/query/, ({ request }) => {
+          request.url.split('?')[1].should.equal('name=ymy');
+          done();
+          return false;
+        });
+        req.get('/api/req/get/query', { query: { name: 'ymy' } }).end();
+      });
+
+      it('should send get method with proper header', done => {
+        FCeptor.get(/api\/req\/get\/header$/, ({ request }) => {
+          request.headers.get('x-request').should.equal('req');
+          done();
+          return false;
+        });
+        req.get('/api/req/get/header').set('X-REQUEST', 'req').end();
+      });
+
+      it('should send data as second paramater', done => {
+        FCeptor.post(/api\/req\/post$/, ({ request }) => {
+          request.text().then(res => {
+            res.should.equal('ymy');
+            done();
+          })
+          return false;
+        });
+        req.post('/api/req/post', 'ymy').end();
+      });
+
+      it('should send data with send method', done => {
+        FCeptor.post(/api\/req\/post\/send$/, ({ request }) => {
+          request.text().then(res => {
+            res.should.equal('ymy');
+            done();
+          })
+          return false;
+        });
+        req.post('/api/req/post/send').send('ymy').end();
+      });
+    });
+
+    mocha.run();
+  </script>
 </body>
 </html>
