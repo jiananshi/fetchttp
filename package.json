@@ -1,6 +1,6 @@
 {
   "name": "req",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "",
   "main": "lib/req.js",
   "scripts": {},

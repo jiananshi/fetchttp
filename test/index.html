@@ -72,12 +72,22 @@
 
     describe('extra conditions', () => {
       it('should add queryString after original', done => {
-        FCeptor.get(/api\/req\/get\/extra/, ({ request }) => {
+        FCeptor.get(/api\/req\/baseurlwithquerystring\/querystring/, ({ request }) => {
           request.url.split('?').length.should.equal(2);
           done();
           return false;
         });
-        req.get('/api/req/get/extra?name=ymy', { query: { weight: 46.8 } }).end();
+        req.get('/api/req/baseurlwithquerystring/querystring?name=ymy', { query: { weight: 46.8 } }).end();
+      });
+
+      it('should add queryString after original', done => {
+        FCeptor.get(/api\/req\/baseurlwithquerystring\/get/, ({ request }) => {
+          request.url.should.equal(`${location.href}api/req/baseurlwithquerystring/get/test?name=ymy`);
+          done();
+          return false;
+        });
+        const api = req.create({ baseUrl: '/api/req/baseurlwithquerystring/get?name=ymy' });
+        api.get('/test').end();
       });
     });
 
