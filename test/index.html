@@ -70,6 +70,17 @@
       });
     });
 
+    describe('extra conditions', () => {
+      it('should add queryString after original', done => {
+        FCeptor.get(/api\/req\/get\/extra/, ({ request }) => {
+          request.url.split('?').length.should.equal(2);
+          done();
+          return false;
+        });
+        req.get('/api/req/get/extra?name=ymy', { query: { weight: 46.8 } }).end();
+      });
+    });
+
     mocha.run();
   </script>
 </body>
