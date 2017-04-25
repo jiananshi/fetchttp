@@ -1,1 +1,1 @@
-../lib/req.js
+../index.js

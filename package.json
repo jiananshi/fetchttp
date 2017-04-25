@@ -2,7 +2,7 @@
   "name": "req",
   "version": "0.1.3",
   "description": "",
-  "main": "lib/req.js",
+  "main": "req.js",
   "scripts": {},
   "repository": {
     "type": "git",

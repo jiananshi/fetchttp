@@ -8,7 +8,7 @@ Add `req.js` to your page
 
 **2. API**
 
-2.1 a minimal http get request would be like this:
+**2.1** a minimal http get request would be like this:
 
 ```js
 req.get('https://yourdomain.com')
@@ -24,13 +24,13 @@ req.get('https://yourdomain.com')
 - PATCH
 - DELETE
 
-2.2 Alternatively you can pass data as second argument:
+**2.2** Alternatively you can pass data as second argument:
 
 ```js
 req.post('https://yourdomain.com', { str: 'ymy' }).end();
 ```
 
-2.3 Last arguments would always be fetch configuration which passes directly to native `fetch`:
+**2.3** Last arguments would always be fetch configuration which passes directly to native `fetch`:
 
 ```js
 req.patch('https://yourdomain.com/user/813', { str: 'ymy' }, {
@@ -39,7 +39,7 @@ req.patch('https://yourdomain.com/user/813', { str: 'ymy' }, {
 }).end();
 ````
 
-2.4 The reason why call `end()` method is inspired by mongoose's queryBuilder, which leet you generate your query step by step then do the query:
+**2.4** The reason why call `end()` method is inspired by mongoose's queryBuilder, which leet you generate your query step by step then do the query:
 
 ```js
 req.post('https://yourdomain.com')
@@ -50,7 +50,7 @@ req.post('https://yourdomain.com')
   .end() // till now send the request
 ```
 
-2.5 Finally there are senarios in Project your have to write
+**2.5** Finally there are senarios in Project your have to write
 
 ```js
 const commonConfig = Object.freeze({
