@@ -128,6 +128,6 @@
     };
   });
 
-  umd('req', new Main({}));
+  umd('fetchttp', new Main({}));
 })();
 

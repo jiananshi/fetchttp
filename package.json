@@ -1,19 +1,19 @@
 {
-  "name": "req",
-  "version": "0.1.3",
+  "name": "fetchttp",
+  "version": "0.1.4",
   "description": "",
   "main": "req.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jiananshi/req.git"
+    "url": "git+https://github.com/jiananshi/fetchttp.git"
   },
   "author": "jiananshi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jiananshi/req/issues"
+    "url": "https://github.com/jiananshi/fetchttp/issues"
   },
-  "homepage": "https://github.com/jiananshi/req#readme",
+  "homepage": "https://github.com/jiananshi/fetchttp#readme",
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-elemefe": "^0.2.2",
