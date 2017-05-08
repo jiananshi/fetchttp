@@ -1,6 +1,20 @@
 'use strict';
 
-(exports => {
+/* global define */
+(() => {
+  const umd = (name, component) => {
+    switch (true) {
+      case typeof module === 'object' && !!module.exports:
+        module.exports = component;
+        break;
+      case typeof define === 'function' && !!define.amd:
+        define(name, () => component);
+        break;
+      default:
+        window[name] = component;
+    }
+  };
+
   const HTTP_METHODS = new Set([
     'GET',
     'POST',
@@ -114,6 +128,6 @@
     };
   });
 
-  exports.req = new Main({});
-})(typeof window === 'undefined' ? global : window);
+  umd('req', new Main({}));
+})();
 
